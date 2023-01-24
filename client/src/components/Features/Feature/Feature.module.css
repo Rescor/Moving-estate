@@ -1,0 +1,14 @@
+.feature_component {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-size: 16px;
+  color: #74777C;
+}
+
+.feature_component svg {
+  margin-left: 18px;
+  margin-right: 10px;
+}

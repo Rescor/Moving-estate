@@ -1,0 +1,30 @@
+.floor_plans {
+  margin: 0 auto;
+  width: 1000px;
+  height: 615px;
+}
+
+.floor_img {
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.plan_btn_not_focus,
+.plan_btn_focus {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 25px;
+  font-size: 20px;
+}
+
+.plan_btn_focus {
+  color: #4D4F52;
+}
+
+.plan_btn_not_focus {
+  color: #74777C;
+}

@@ -1,0 +1,11 @@
+.amenities_wrapper {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  max-width: 550px;
+}
+
+label {
+  color: #000;
+}

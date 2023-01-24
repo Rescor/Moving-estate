@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  gap: 25px;
+  margin: 0 auto 20px;
+  justify-content: center;
+}
+
+.tab {
+  font-size: 20px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.selected {
+  color: #fff;
+  background-color: #1976d2;
+}
+
+.not_selected {
+  color: #000;
+}

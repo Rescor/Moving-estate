@@ -1,0 +1,21 @@
+.overlay {
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #00000033;
+  display: grid;
+  z-index: 10;
+}
+
+.wrapper {
+  border: 3px solid #1976d2;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  justify-self: center;
+  align-self: center;
+}

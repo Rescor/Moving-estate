@@ -1,0 +1,20 @@
+{
+  "port": 80,
+  "database_url": "sqlite://db/main.db",
+  "mail": {
+    "host": "",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "",
+      "pass": ""
+    }
+  },
+  "admin_url": "http://localhost",
+  "auth": {
+    "GOOGLE_CLIENT_ID": "",
+    "GOOGLE_CLIENT_SECRET": "",
+    "secret": "auth"
+  },
+  "manager_email": ""
+}

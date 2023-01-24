@@ -1,0 +1,11 @@
+.wrapper {
+  width: calc(1000px / 3 * 2);
+  margin: 63px auto;
+  display: block;
+  text-align: center;
+}
+
+.pages {
+  display: inline-block;
+  margin: 0 10px
+}

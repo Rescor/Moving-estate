@@ -1,0 +1,16 @@
+.header {
+  background-image: url("assets/background.svg");
+  height: 150px;
+  color: #df434a;
+  line-height: 39px;
+  text-transform: uppercase;
+}
+
+.header_center {
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}

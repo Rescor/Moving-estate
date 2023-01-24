@@ -1,0 +1,25 @@
+.row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+.dropdown_error {
+  color: red;
+  font-size: 14px;
+}
+
+.textarea{
+  width: 300px;
+  height: 200px;
+  margin: 5px 0;
+}
+
+.label {
+  color: #df434a;
+  font-weight: 700;
+  padding-right: 10px;
+}

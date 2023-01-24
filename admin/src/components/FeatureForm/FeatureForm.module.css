@@ -1,0 +1,14 @@
+.form {
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, max-content) auto repeat(2, max-content);
+  align-items: center;
+}
+
+.input {
+  margin: 10px;
+}
+
+.nav_link {
+  text-decoration: none;
+}

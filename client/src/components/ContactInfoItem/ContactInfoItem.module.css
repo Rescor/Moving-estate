@@ -1,0 +1,24 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.footer_icon {
+  min-width: 30px;
+  min-height: 30px;
+  border: 1px solid #74777C;
+  border-radius: 4px;
+}
+
+.contact_info_item {
+  display: flex;
+  align-items: center;
+}
+
+.contact_link {
+  text-decoration: none;
+  color: #74777C;
+  font-size: 15px;
+}

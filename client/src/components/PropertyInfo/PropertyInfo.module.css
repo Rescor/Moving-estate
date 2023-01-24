@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  gap: 32px;
+  padding: 0;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.list_centered {
+  justify-content: center;
+}

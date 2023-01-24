@@ -1,0 +1,16 @@
+.wrapper {
+  width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  align-items: center;
+  border: 2px solid #1976d2;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.feature_component {
+  padding: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}

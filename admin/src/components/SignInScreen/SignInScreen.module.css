@@ -1,0 +1,10 @@
+#sign_in_screen {
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  background-color: rgb(43, 43, 43);
+}
+
+.sign_in_button {
+  vertical-align: middle;
+}

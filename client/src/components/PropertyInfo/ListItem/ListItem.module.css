@@ -1,0 +1,26 @@
+.list_item {
+  position: relative;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #74777C;
+}
+
+.list_item::after {
+  content: "";
+  position: absolute;
+  left: -16px;
+  height: 18px;
+  border-left: 1px solid #E4E4E4;
+}
+
+.list_item:first-child::after,
+.centered:last-child,
+.id_provided:last-child::after {
+  display: none;
+}
+
+.id_provided:last-child {
+  margin-left: auto;
+}

@@ -1,0 +1,14 @@
+.view_mode_wrapper {
+  width: calc(1000px / 3 * 2);
+  margin: 0 auto;
+  padding: 35px 0;
+  font-size: 16px;
+  color: #74777C;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.view_mode_wrapper > span {
+  margin-right: 12px;
+}

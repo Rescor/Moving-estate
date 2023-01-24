@@ -1,0 +1,14 @@
+.properties_wrapper {
+  width: calc(1000px / 3 * 2);
+  display: grid;
+  grid-gap: 30px;
+}
+
+.grid_view_mode {
+  grid-template-columns: 1fr 1fr;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}

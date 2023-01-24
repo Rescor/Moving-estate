@@ -1,0 +1,18 @@
+.dropdown_container {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 5px 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.dropdown {
+  width: 300px;
+  height: 38px;
+}
+
+.label {
+  color: #df434a;
+  font-weight: 700;
+}

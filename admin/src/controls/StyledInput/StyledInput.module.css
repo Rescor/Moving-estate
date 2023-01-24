@@ -1,0 +1,23 @@
+.input_container {
+  max-width: 450px;
+}
+
+.input_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.input {
+  width: 300px;
+}
+
+.input_error {
+  color: red;
+  font-size: 14px;
+}
+
+.label {
+  color: #df434a;
+  font-weight: 700;
+}

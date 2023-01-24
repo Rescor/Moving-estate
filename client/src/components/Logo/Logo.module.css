@@ -1,0 +1,11 @@
+.logo {
+  padding-right: 30px;
+}
+
+.logo_color path {
+  fill: #df434a;
+}
+
+.logo_color {
+  stroke: #df434a;
+}

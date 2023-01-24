@@ -1,0 +1,20 @@
+.li_not_available,
+.li_available {  
+  font-size: 16px;
+  color: #74777c;
+  list-style: none;    
+}
+
+.li_not_available::before {
+  content: "✗";  
+}
+
+.li_available::before {
+  content: "✓";  
+}
+
+.li_not_available::before,
+.li_available::before {
+  color: #DF434A;
+  padding-right: 22px;
+}

@@ -1,0 +1,9 @@
+.amenities {
+  display: grid;
+  margin: 0 auto;
+  padding: 0;
+  width: 1000px;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 150px;
+  row-gap: 10px;
+}

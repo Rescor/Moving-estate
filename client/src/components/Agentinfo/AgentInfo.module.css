@@ -1,0 +1,71 @@
+.agent_info {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto 150px;
+  border: 1px solid #e4e4e4;
+  background-color: #F1F3F6;
+}
+
+.agent {
+  width: 220px;
+  height: 220px;
+}
+
+.info {
+  width: 220px;
+  background-color: #fff;
+}
+
+.message {
+  width: 780px;
+}
+
+.name_location {
+  padding: 10px 30px 0;
+}
+
+.info div:nth-child(2) {
+  padding-bottom: 8px;
+}
+
+.name,
+.location,
+.thank_you,
+.your_message {
+  color: #4d4f52;
+  font-weight: 400;
+}
+
+.name,
+.location {
+  width: 220px;
+}
+
+.name,
+.thank_you {
+  font-size: 32px;
+  line-height: 39px;
+}
+
+.location,
+.your_message {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 19px;
+  padding: 15px 0;
+}
+
+.your_message,
+.thank_you {
+  margin: 0 auto;
+}
+
+.thank_you {
+  padding-left: 35%;
+}
+
+.your_message{
+  padding-left: 10%;
+}
