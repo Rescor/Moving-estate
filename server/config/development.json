@@ -14,7 +14,7 @@
   "auth": {
     "GOOGLE_CLIENT_ID": "",
     "GOOGLE_CLIENT_SECRET": "",
-    "secret": "auth"
+    "secret": ""
   },
   "manager_email": ""
 }

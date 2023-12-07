@@ -37,59 +37,41 @@ async function index(req, res) {
 
 async function create(req, res) {
   const email = "jsmastery2022@gmail.com";
-  const agentId = await Agent.findOne({ where: { email } }).then(
-    (agent) => agent.id
-  );
+  const agent = await Agent.findOne({ where: { email } });
+
+  if (!agent) return res.status(404).json({ error: "Agent not found" });
+
+  const agentId = agent.id;
 
   try {
-    const property = await Property.createProperty(
-      { ...req.body, agentId },
-      Amenity
+    const property = await Property.create(
+      { ...req.body, agentId, images: [] },
+      { include: { all: true } }
     );
 
-    return res.status(200).json({ property });
+    return res.status(200).json(property.summaryView());
   } catch (error) {
-    return res.status(403).json({ error });
+    return res.status(403).json({ error: error.message });
   }
 }
 
 async function update(req, res) {
   const { id } = req.params;
-  const {
-    title,
-    location,
-    description,
-    type,
-    mode,
-    price,
-    area,
-    bedrooms,
-    bathrooms,
-  } = req.body;
 
   let property = await Property.findByPk(id, { include: { all: true } });
 
+  //do we need that if without this there is res "error": "Cannot read properties of null (reading 'update')"
   if (!property)
     return res
       .status(404)
       .json({ error: `Property with id = ${id} doesn't exist` });
 
   try {
-    await property.updateProperty({
-      title,
-      location,
-      description,
-      type,
-      mode,
-      price,
-      area,
-      bedrooms,
-      bathrooms,
-    });
+    await property.update(req.body);
 
-    return res.json(await property.detailView(Amenity));
+    return res.status(200).json({ property: property.detailView(Amenity) });
   } catch (error) {
-    res.status(403).json({ error });
+    res.status(403).json({ error: error.message });
   }
 }
 
@@ -101,7 +83,7 @@ async function destroy(req, res) {
 
     res.json(await property.destroy());
   } catch (error) {
-    res.status(403).json({ error });
+    res.status(403).json({ error: error.message });
   }
 }
 
@@ -114,7 +96,7 @@ async function retrieve(req, res) {
     include: { model: Property, where: { id: id } },
   });
 
-  if (!agent) return res.status(401).json();
+  if (!agent) return res.status(401).json({ error: "no access" });
 
   const messages = await Message.findAll({ where: { propertyId: id } });
 
@@ -132,3 +114,10 @@ module.exports = Router()
   .use("/:id/floor_plans", floor_plans)
   .use("/:id/amenities", amenities)
   .use("/:id/features", features);
+
+module.exports.index = index;
+module.exports.read = read;
+module.exports.create = create;
+module.exports.update = update;
+module.exports.destroy = destroy;
+module.exports.retrieve = retrieve;

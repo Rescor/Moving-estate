@@ -13,14 +13,18 @@
     "sqlite3": "^5.1.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "sinon": "^15.0.1",
+    "sinon-chai": "^3.7.0"
   },
   "scripts": {
     "db:migrate": "sequelize db:migrate",
     "db:seed": "sequelize db:seed:all",
-
     "start": "nodemon src/",
     "prestart:prod": "yarn db:migrate",
-    "start:prod": "node ./src"
+    "start:prod": "node ./src",
+    "test":"mocha src/**/*.spec.js"
   }
 }

@@ -36,8 +36,10 @@ async function read(req, res) {
 
     return res.status(200).json(await property.detailView(Amenity));
   } catch (error) {
-    return res.status(404).json();
+    return res.status(404).json({ error: `Property with id ${id} not found` });
   }
 }
 
 module.exports = Router().get("/", index).get("/:id", read);
+module.exports.index = index;
+module.exports.read = read;

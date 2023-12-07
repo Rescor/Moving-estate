@@ -18,9 +18,9 @@ async function create(req, res) {
       include: { all: true },
     });
 
-    res.json(await updatedProperty.detailView(Amenity));
+    res.status(200).json(await updatedProperty.detailView(Amenity));
   } catch (error) {
-    res.status(403).json({ error });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -31,9 +31,9 @@ async function index(req, res) {
     const property = await Property.findByPk(id, { include: { all: true } });
     const features = property.featuresDetail();
 
-    return res.json({ features });
+    return res.status(200).json({ features });
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -51,9 +51,9 @@ async function update(req, res) {
       include: { all: true },
     });
 
-    res.json(await updatedProperty.detailView(Amenity));
+    res.status(200).json(await updatedProperty.detailView(Amenity));
   } catch (error) {
-    res.status(403).json({ error });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -70,9 +70,9 @@ async function destroy(req, res) {
       include: { all: true },
     });
 
-    res.json(await updatedProperty.detailView(Amenity));
+    res.status(200).json(await updatedProperty.detailView(Amenity));
   } catch (error) {
-    res.status(403).json({ error });
+    res.status(500).json({ error: error.message });
   }
 }
 
@@ -81,3 +81,8 @@ module.exports = Router({ mergeParams: true })
   .post("/", create)
   .put("/:icon", update)
   .delete("/:icon", destroy);
+
+module.exports.index = index;
+module.exports.create = create;
+module.exports.update = update;
+module.exports.destroy = destroy;

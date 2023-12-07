@@ -52,115 +52,40 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    static getOptions() {
-      return this.findAll().then((properties) => {
-        const extract = (key) => [
-          ...new Set(properties.map((property) => property[key])),
-        ];
+    static async getOptions() {
+      const properties = await this.findAll();
 
-        const options = {
-          type: extract("type").sort() || [],
-          mode: extract("mode").sort() || [],
-          bedrooms:
-            extract("bedrooms").sort((a, b) => {
-              return a - b;
-            }) || [],
-          bathrooms:
-            extract("bathrooms").sort((a, b) => {
-              return a - b;
-            }) || [],
-          location:
-            extract("location").sort((a, b) => {
-              return a - b;
-            }) || [],
-        };
+      const extract = (key) => [
+        ...new Set(properties.map((property) => property[key])),
+      ];
 
-        return options;
-      });
-    }
+      const options = {
+        type: extract("type").sort() || [],
+        mode: extract("mode").sort() || [],
+        bedrooms:
+          extract("bedrooms").sort((a, b) => {
+            return a - b;
+          }) || [],
+        bathrooms:
+          extract("bathrooms").sort((a, b) => {
+            return a - b;
+          }) || [],
+        location: extract("location").sort() || [],
+      };
 
-    static async createProperty(values, Amenity) {
-      const {
-        title,
-        location,
-        description,
-        type,
-        mode,
-        price,
-        area,
-        bedrooms,
-        bathrooms,
-        agentId,
-      } = values;
-
-      const lastId = await Property.findOne({
-        attributes: ["id"],
-        where: { type: type },
-        order: [["id", "DESC"]],
-        paranoid: false,
-      }).then((property) => property.id);
-      const id =
-        lastId.charAt(0) +
-        (Number(lastId.slice(1)) + 1).toString().padStart(3, "0");
-
-      await Property.create({
-        id,
-        title,
-        location,
-        description,
-        type,
-        mode,
-        price,
-        area,
-        bedrooms,
-        bathrooms,
-        agentId,
-      });
-
-      const property = await this.findByPk(id, { include: { all: true } });
-
-      return await property.detailView(Amenity);
-    }
-
-    async updateProperty(values) {
-      const {
-        title,
-        location,
-        description,
-        type,
-        mode,
-        price,
-        area,
-        bedrooms,
-        bathrooms,
-      } = values;
-
-      await this.update({
-        title,
-        location,
-        description,
-        type,
-        mode,
-        price,
-        area,
-        bedrooms,
-        bathrooms,
-      });
-
-      return await Property.findByPk(this.id, { include: { all: true } });
+      return options;
     }
 
     async amenitiesDetail(Amenity) {
-      const amenities = await Amenity.findAll().then((amenities) =>
-        amenities.map((amenity) => amenity.title)
-      );
+      const amenities = await Amenity.findAll();
 
-      return amenities.map((amenityTitle) => {
+      return amenities.map((amenity) => {
         const available = this.amenities.some(
-          (amenity) => amenity.title === amenityTitle
+          (propertyAmenity) => propertyAmenity.title === amenity.title
         );
+
         return {
-          title: amenityTitle,
+          ...amenity.simpleView(),
           available: available,
         };
       });
@@ -168,29 +93,19 @@ module.exports = (sequelize, DataTypes) => {
 
     floorPlansDetail() {
       return this.floor_plans.map((floor_plan) => {
-        return {
-          floorPlanId: floor_plan.id,
-          name: floor_plan.name,
-          url: floor_plan.url,
-        };
+        return floor_plan.simpleView();
       });
     }
 
     featuresDetail() {
       return this.features.map((feature) => {
-        return {
-          feature: feature.icon,
-          title: feature.PropertyFeature.title,
-        };
+        return feature.simpleView();
       });
     }
 
     imagesDetail() {
       return this.images.map((image) => {
-        return {
-          imageId: image.id,
-          link: image.link,
-        };
+        return image.simpleView();
       });
     }
 
